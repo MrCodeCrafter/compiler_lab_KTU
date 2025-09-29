@@ -1,0 +1,11 @@
+float pi=3.142857;
+
+void main()
+{
+
+float c;
+
+c=6.285714;
+float b;
+b=9.428572;
+}

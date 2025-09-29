@@ -1,0 +1,7 @@
+OP	O1	O2	RES
+*	a	b	t1
+=	#	5	a
+*	a	b	t2
++	c	t1	t3
+*	a	b	t4
+-	t3	t4	t5
