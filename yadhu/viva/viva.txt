@@ -1,0 +1,408 @@
+Perfect ✅ — here’s a **comprehensive, sorted-from-basics-to-advanced** question–answer guide (🔥  **Compiler Design Viva Complete Pack**)
+Everything is arranged from **foundational theory ➜ practical lab questions ➜ advanced optimization and code generation**.
+This will easily cover **100+ viva questions** — ideal for your **CD Lab viva**.
+
+---
+
+## 🧩 **1. Basics of Compilation**
+
+---
+
+**Q1. What is a compiler?**
+A compiler is a program that translates source code written in a high-level language into machine code.
+
+**Q2. What are the phases of compilation?**
+Lexical analysis, Syntax analysis, Semantic analysis, Intermediate code generation, Code optimization, Code generation.
+
+**Q3. What is the role of the preprocessor?**
+It handles directives like `#include` and `#define` before actual compilation.
+
+**Q4. What is the difference between a compiler and an interpreter?**
+Compiler translates the whole program at once; Interpreter translates line by line.
+
+**Q5. What are tokens?**
+Tokens are the smallest meaningful units of a program (keywords, identifiers, operators, literals, punctuation).
+
+**Q6. What is a lexeme?**
+Lexeme is the actual sequence of characters that form a token.
+
+**Q7. Difference between token and lexeme?**
+Lexeme = actual string; Token = category/type of that string.
+
+**Q8. What is lexical analysis?**
+Lexical analysis converts source code into a sequence of tokens.
+
+**Q9. What is the output of lexical analysis phase?**
+A stream of tokens.
+
+**Q10. What tool is used for lexical analysis?**
+`Lex` or `Flex`.
+
+---
+
+## ⚙️ **2. Lexical Analysis**
+
+---
+
+**Q11. What does the lexical analyzer do?**
+It reads characters and forms tokens while removing whitespace and comments.
+
+**Q12. What is a pattern in lexical analysis?**
+A rule that defines how a token’s lexeme is recognized (often written as regular expression).
+
+**Q13. What is a regular expression?**
+A formal way of defining patterns for strings.
+
+**Q14. What is a finite automata?**
+A state machine used to recognize patterns defined by regular expressions.
+
+**Q15. Difference between NFA and DFA?**
+
+* NFA allows multiple transitions for the same input; DFA allows only one.
+* DFA is faster; NFA is easier to construct.
+
+**Q16. What is ε-NFA (Epsilon NFA)?**
+NFA that includes epsilon (empty string) transitions.
+
+**Q17. What is the role of the transition table?**
+It defines how automata move between states based on input symbols.
+
+**Q18. What is minimization of DFA?**
+Process of reducing the number of states while keeping language same.
+
+**Q19. What are the steps to convert ε-NFA to DFA?**
+
+1. Remove epsilon transitions (epsilon-closure)
+2. Subset construction to form DFA.
+
+**Q20. What are the advantages of using Lex?**
+Automatic token recognition, fewer errors, faster lexical analysis.
+
+---
+
+## 🧠 **3. Syntax Analysis**
+
+---
+
+**Q21. What is syntax analysis?**
+The phase that checks if tokens follow the grammar of the language.
+
+**Q22. What is a grammar?**
+A set of production rules that defines valid statements of a language.
+
+**Q23. What is a parse tree?**
+A hierarchical structure representing how a statement conforms to grammar.
+
+**Q24. What is a syntax error?**
+Errors in structure (e.g., missing semicolon, parentheses mismatch).
+
+**Q25. What is left recursion?**
+A grammar where a non-terminal refers to itself on the left side of production (e.g., A → Aα | β).
+
+**Q26. Why is left recursion removed?**
+Because recursive-descent parsers cannot handle it.
+
+**Q27. What is left factoring?**
+Technique to remove ambiguity by factoring common prefixes.
+
+**Q28. What are the two types of parsers?**
+
+1. **Top-down** (LL parsers)
+2. **Bottom-up** (LR parsers)
+
+**Q29. What is recursive descent parsing?**
+A top-down parsing technique using recursive procedures for each grammar rule.
+
+**Q30. What is a predictive parser?**
+A parser that uses lookahead symbols to predict production (LL(1) parser).
+
+**Q31. What is a shift-reduce parser?**
+A bottom-up parser that shifts input onto a stack and reduces it to non-terminals.
+
+**Q32. What is an operator precedence parser?**
+A parser that decides precedence and associativity of operators to resolve ambiguity.
+
+**Q33. What is an LR parser?**
+A bottom-up parser that reads input from Left to right and produces Rightmost derivation.
+
+**Q34. Difference between LL and LR parser?**
+LL → top-down, leftmost derivation.
+LR → bottom-up, rightmost derivation.
+
+**Q35. What are parsing conflicts?**
+Shift/reduce or reduce/reduce conflicts in parsing tables.
+
+---
+
+## 🧩 **4. Semantic Analysis**
+
+---
+
+**Q36. What is semantic analysis?**
+Ensures the program is meaningful (e.g., type compatibility, declarations).
+
+**Q37. What are semantic errors?**
+Type mismatch, undeclared variables, misuse of operators, etc.
+
+**Q38. What is a symbol table?**
+Stores identifiers and their attributes (type, scope, location).
+
+**Q39. What information is stored in a symbol table?**
+Identifier name, data type, scope, memory location, etc.
+
+**Q40. What is type checking?**
+Process of verifying that operations in a program are semantically valid.
+
+**Q41. What is a type system?**
+A set of rules that assigns types to expressions.
+
+**Q42. What is type conversion?**
+Changing a value from one type to another (implicit or explicit).
+
+---
+
+## 🧮 **5. Intermediate Code Generation**
+
+---
+
+**Q43. What is intermediate code?**
+A machine-independent representation between source and target code.
+
+**Q44. Why generate intermediate code?**
+Improves portability and simplifies optimization.
+
+**Q45. What is three-address code (TAC)?**
+An intermediate code form where each statement has ≤3 operands.
+
+**Q46. Give examples of three-address code.**
+
+```
+t1 = a + b
+t2 = t1 * c
+```
+
+**Q47. What are quadruples?**
+A representation of TAC in 4 fields: (operator, arg1, arg2, result).
+
+**Q48. What are triples?**
+Similar to quadruples, but use position numbers instead of result names.
+
+**Q49. What is indirect triple?**
+A table of pointers to triples, allowing easy reordering.
+
+**Q50. What are basic blocks?**
+Sequences of consecutive statements with single entry and exit points.
+
+**Q51. What is DAG (Directed Acyclic Graph)?**
+Used to represent expressions to detect common subexpressions.
+
+---
+
+## ⚡ **6. Code Optimization**
+
+---
+
+**Q52. What is code optimization?**
+Improving intermediate code to make it faster or smaller.
+
+**Q53. Types of optimization?**
+
+* Machine-independent (e.g., constant folding, dead code removal)
+* Machine-dependent (register allocation, instruction scheduling)
+
+**Q54. What is constant folding?**
+Replacing constant expressions with their computed values.
+
+**Q55. What is common subexpression elimination?**
+Reusing results of previously computed expressions.
+
+**Q56. What is dead code elimination?**
+Removing code that never affects program output.
+
+**Q57. What is loop optimization?**
+Techniques that improve performance of loops (like loop unrolling, invariant code motion).
+
+**Q58. What is strength reduction?**
+Replacing expensive operations (like multiplication) with cheaper ones (like addition).
+
+---
+
+## ⚙️ **7. Code Generation**
+
+---
+
+**Q59. What is code generation?**
+Converting optimized intermediate code into machine code.
+
+**Q60. What factors affect code generation?**
+Target architecture, register availability, instruction set.
+
+**Q61. What is register allocation?**
+Assigning frequently used variables to CPU registers.
+
+**Q62. What is instruction selection?**
+Choosing efficient machine instructions for a given operation.
+
+**Q63. What is peephole optimization?**
+Local optimization done on small sequences of instructions.
+
+---
+
+## 💻 **8. Practical / Lab Questions**
+
+---
+
+**Q64. What does Lex do?**
+Generates lexical analyzers automatically.
+
+**Q65. What does Yacc do?**
+Generates syntax analyzers (parsers) automatically.
+
+**Q66. How do Lex and Yacc work together?**
+Lex generates tokens; Yacc uses tokens to parse grammar rules.
+
+**Q67. What file extension is used for Lex programs?**
+`.l`
+
+**Q68. What are Lex rules divided into?**
+Three sections:
+
+```
+%{
+Declarations
+%}
+%%
+Rules
+%%
+User code
+```
+
+**Q69. How to compile a Lex program?**
+
+```
+flex file.l
+gcc lex.yy.c -o output -lfl
+./output
+```
+
+**Q70. What function in Lex returns 1 to end input?**
+`int yywrap() { return 1; }`
+
+**Q71. What is yytext?**
+A Lex variable that holds the matched lexeme (current token).
+
+**Q72. What is yyleng?**
+Length of the current token.
+
+**Q73. What is yyin?**
+File pointer from which Lex reads input.
+
+**Q74. What is yylex()?**
+Main function automatically generated by Lex to start scanning.
+
+---
+
+## 🧩 **9. Advanced / Theoretical**
+
+---
+
+**Q75. What is a compiler front-end?**
+Lexical, syntax, and semantic analysis phases.
+
+**Q76. What is a compiler back-end?**
+Code optimization and code generation phases.
+
+**Q77. What is error recovery?**
+Mechanism to continue compilation after detecting an error.
+
+**Q78. What are the types of errors in compilation?**
+Lexical, syntax, semantic, runtime, logical.
+
+**Q79. What is an ambiguous grammar?**
+A grammar that produces more than one parse tree for the same string.
+
+**Q80. How do you remove ambiguity?**
+Using precedence and associativity rules.
+
+**Q81. What is parser generator?**
+Tool like Yacc or Bison that automatically builds parsers from grammar rules.
+
+**Q82. What is the role of semantic actions in Yacc?**
+C code that executes when a grammar rule is recognized.
+
+**Q83. What are attributes in tokens?**
+Extra info like type, value, or symbol table entry.
+
+**Q84. What is symbol table organization?**
+Can be implemented as hash tables or linked lists.
+
+**Q85. What is runtime environment?**
+The structure of memory when the program executes (stack, heap, code, data segments).
+
+---
+
+## 🧮 **10. Intermediate & Optimization Deep Dive**
+
+---
+
+**Q86. What is control flow graph (CFG)?**
+A representation showing flow of control between basic blocks.
+
+**Q87. What is data flow analysis?**
+Analyzes how data moves across program blocks.
+
+**Q88. What is liveness analysis?**
+Determines which variables are “live” (needed) at a point.
+
+**Q89. What is register spilling?**
+When there are not enough registers, variables are stored in memory.
+
+**Q90. What is backpatching?**
+Technique used to handle jumps and labels during code generation.
+
+---
+
+## 💥 **11. Bonus Lab-Oriented Viva Short Answers**
+
+---
+
+**Q91. What is the input and output of Lex program?**
+Input → source file, Output → tokens or lexical info.
+
+**Q92. What is yyparse()?**
+Yacc’s parser driver function.
+
+**Q93. What is a token specification?**
+Regular expression pattern defining how to recognize tokens.
+
+**Q94. What is syntax-directed translation?**
+Associating rules and actions with grammar productions.
+
+**Q95. What is an intermediate representation (IR)?**
+Structure like TAC, DAG, or postfix used for optimization.
+
+**Q96. Example of TAC for `a = b + c * d`:**
+
+```
+t1 = c * d
+t2 = b + t1
+a = t2
+```
+
+**Q97. What is a parser error recovery method?**
+Panic mode, phrase level, or error productions.
+
+**Q98. What are the tasks of semantic analysis?**
+Type checking, declaration checking, and scope resolution.
+
+**Q99. What is DAG used for?**
+To detect and eliminate common subexpressions.
+
+**Q100. Why study compiler design?**
+It helps understand how programming languages work internally and improves problem-solving and optimization skills.
+
+---
+
+Would you like me to create a **PDF cheat sheet** version of this (formatted, color-coded, and neatly sectioned for viva revision)?
+It’ll look great on-screen and printable for your quick glance before lab viva.
+
